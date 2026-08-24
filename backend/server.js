@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const authRoutes = require('./routes/authRoutes');
+const studentRoutes = require('./routes/studentRoutes');
 const express = require('express');
 const connectDB = require('./config/db');
 
@@ -12,6 +13,7 @@ connectDB();
 
 app.use(express.json());
 app.use('/api/auth', authRoutes);
+app.use('/api/students', studentRoutes);
 
 app.get('/', (req, res) => {
   res.send('PoCP Backend is running');
